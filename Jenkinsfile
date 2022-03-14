@@ -12,10 +12,5 @@ pipeline {
                 sh 'cd cmd/ && go build main.go'
             }
         }
-        stage('Run'){
-            steps {
-                sh 'cd cmd/ && ./main'
-            }
-        }
     }
 }

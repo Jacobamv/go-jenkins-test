@@ -1,0 +1,7 @@
+server {
+    server_name paymona.com www.paymona.com;
+
+    location / {
+        proxy_pass http://localhost:8181;
+    }
+}

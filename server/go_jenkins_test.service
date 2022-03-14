@@ -1,5 +1,5 @@
 [Unit]
-Description=goweb
+Description=go_jenkins_test
 
 [Service]
 Type=simple

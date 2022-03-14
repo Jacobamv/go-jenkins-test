@@ -12,5 +12,19 @@ pipeline {
                 sh 'cd cmd/ && go build main.go'
             }
         }
+        stage("Set a service"){
+            steps{
+                sh 'sudo cp server/go_jenkins_test.service /lib/systemd/system/go_jenkins_test.service'
+                sh 'sudo service go_jenkins_test start'
+            }
+        }
+        stage("Set a nginx"){
+            steps{
+                sh 'sudo cp server/go_jenkins_test /etc/nginx/sites-available/'
+                sh 'sudo ln -s /etc/nginx/sites-available/go_jenkins_test /etc/nginx/sites-enabled/'
+                sh 'sudo service nginx restart'
+           }
+        }
     }
 }
+go_jenkins_test

@@ -21,10 +21,9 @@ pipeline {
         stage("Set a nginx"){
             steps{
                 sh 'sudo cp server/go_jenkins_test /etc/nginx/sites-available/'
-                sh 'sudo ln -s /etc/nginx/sites-available/go_jenkins_test /etc/nginx/sites-enabled/'
+                sh 'sudo ln -sf /etc/nginx/sites-available/go_jenkins_test /etc/nginx/sites-enabled/'
                 sh 'sudo service nginx restart'
            }
         }
     }
 }
-go_jenkins_test
